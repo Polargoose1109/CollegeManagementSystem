@@ -1,25 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/login6.css">
+    <link rel="stylesheet" href="../CSS/login6.css">
     <title>Login Page</title>
-    <style>
-        .mainpage-btn-container {
-            text-align: center;
-            margin-top: 20px;
-            width: 100%;
-        }
-    </style>
 </head>
 <body>
 <div class="login-box">
     <div class="login-form">
         <h2>LOGIN PAGE</h2>
-        <form action="Student Information.html" method="get" enctype="application/x-www-form-urlencoded">
+        <form action="../Home/home.html" method="get" enctype="application/x-www-form-urlencoded">
             <fieldset>
                 <legend>Personal Information</legend>
                 <div class="input-item">
@@ -39,8 +30,8 @@
                             type="password"
                             id="password"
                             name="password"
-                            required
                             placeholder="Please input your password"
+                            required
                     >
                 </div>
 
@@ -53,16 +44,11 @@
                     </label>
                 </div>
 
-                <input type="button" class="login-btn" value="Log In" onclick="window.location.href='home.html'">
+                <input type="submit" class="login-btn" value="Log In" >
                 <input type="button" class="login-btn" style="margin-top: 10px;" value="Register" onclick="window.location.href='Register.html'">
             </fieldset>
         </form>
-        <div class="mainpage-btn-container">
-            <button onclick="window.location.href='../MainPage/index.html'">Return to MainPage</button>
-        </div>
     </div>
 </div>
-
-
 </body>
 </html>
