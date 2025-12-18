@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notification (Student)</title>
+    <link rel="stylesheet" href="../../../University1/css/main2.css">
+    <style>
+        .notification-container {
+            width: 80%;
+            max-width: 600px;
+            margin: 2rem auto;
+            font-family: Arial, sans-serif;
+        }
+        .notification-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .msg-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+        .msg-system {
+            align-self: flex-start;
+            max-width: 70%;
+        }
+        .msg-time {
+            font-size: 0.8rem;
+            color: #999;
+            margin-bottom: 0.3rem;
+        }
+        .msg-bubble {
+            background: #f1f1f1;
+            padding: 0.8rem 1rem;
+            border-radius: 12px 12px 12px 4px;
+            line-height: 1.4;
+        }
+        
+        .msg-divider {
+            height: 1px;
+            background: #eee;
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+<a href="Main.html" class="back-btn">BACK</a>
+<div class="main-container">
+    <div class="notification-container">
+        <h2 class="notification-title">Dormitory Notifications</h2>
+
+        <div class="msg-list">
+            <!-- Message 1 -->
+            <div class="msg-system">
+                <div class="msg-time">2025-11-22 09:30</div>
+                <div class="msg-bubble">
+                    A dorm hygiene inspection will be conducted at 14:00 today. Please keep your dorm tidy. Refer to the "Hygiene Scoring Rules" in the system for inspection standards.
+                </div>
+            </div>
+            <div class="msg-divider"></div>
+            <!-- Message 2 -->
+            <div class="msg-system">
+                <div class="msg-time">2025-10-21 16:20</div>
+                <div class="msg-bubble">
+                    The water heater on the 3rd floor of Building 1 has been repaired and is now available for use. Please submit a repair application if you encounter other facility issues.
+                </div>
+            </div>
+            <div class="msg-divider"></div>
+            <!-- Message 3 -->
+            <div class="msg-system">
+                <div class="msg-time">2025-9-20 20:00</div>
+                <div class="msg-bubble">
+                    A night dorm check will be conducted at 22:00 this Saturday. Please return to your dorm on time.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

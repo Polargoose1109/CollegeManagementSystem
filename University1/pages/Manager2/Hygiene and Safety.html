@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hygiene & Safety Management</title>
+    <!-- External CSS file -->
+    <link rel="stylesheet" href="../../../University1/css/main2.css">
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Page-specific styles */
+        body {
+            background-color: #f0f8ff; /* Light blue background, consistent with main2.css */
+            font-family: Arial, sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Main container */
+        .main-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* Page title */
+        .main-title {
+            color: #2755a3; /* Blue title color, consistent with main2.css */
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e9ecef;
+            text-align: center;
+        }
+
+        /* Safety management container */
+        .safety-container {
+            width: 100%; /* Full width to utilize space */
+            margin: 0 auto; /* Center alignment */
+        }
+
+        /* Card styling */
+        .card {
+            background: white;
+            border-radius: 10px; /* Rounded corners, consistent with main2.css */
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06); /* Subtle shadow */
+            padding: 25px;
+            margin-bottom: 25px; /* Spacing between cards */
+            transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth hover effect */
+        }
+
+        /* Card hover effect */
+        .card:hover {
+            transform: translateY(-2px); /* Slight lift on hover */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Enhanced shadow */
+        }
+
+        /* Section title */
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Space between icon and text */
+        }
+
+        /* Icon styling */
+        .section-icon {
+            font-size: 20px;
+        }
+
+        /* Form group */
+        .form-group {
+            margin-bottom: 20px; /* Spacing between form elements */
+        }
+
+        /* Form label */
+        .form-group label {
+            display: block;
+            margin-bottom: 8px; /* Space between label and input */
+            font-weight: 600;
+            color: #4a5568; /* Dark gray text for readability */
+        }
+
+        /* Input and select styling */
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%; /* Full width for responsiveness */
+            max-width: 400px; /* Maximum width limit */
+            padding: 10px 14px; /* Comfortable padding */
+            border: 1px solid #e2e8f0; /* Light border */
+            border-radius: 8px; /* Rounded corners */
+            font-size: 14px;
+            transition: all 0.25s ease; /* Smooth transition for focus */
+        }
+
+        /* Focus effect for inputs */
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1); /* Focus shadow */
+        }
+
+        /* Radio button group */
+        .radio-group {
+            display: flex;
+            gap: 20px; /* Space between radio options */
+            margin-top: 8px;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Space between radio button and text */
+            font-weight: 400; /* Normal weight for radio labels */
+            cursor: pointer;
+        }
+
+        /* Button styling */
+        .btn {
+            padding: 10px 20px; /* Comfortable padding */
+            color: white;
+            border: none;
+            border-radius: 8px; /* Rounded corners */
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.25s ease; /* Smooth transition */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Button shadow */
+            display: inline-flex;
+            align-items: center;
+            gap: 8px; /* Space between icon and text */
+        }
+
+        /* Button hover effect */
+        .btn:hover {
+            transform: translateY(-2px); /* Slight lift on hover */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+        }
+
+        /* Report table */
+        .report-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            border-radius: 10px; /* Rounded corners for table */
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06); /* Table shadow */
+        }
+
+        /* Table header */
+        .report-table th {
+            font-weight: 600;
+            padding: 14px 12px;
+            text-align: left;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1); /* Header border */
+        }
+
+        /* Table content */
+        .report-table td {
+            padding: 14px 12px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05); /* Row border */
+            vertical-align: middle;
+        }
+
+        /* Table row hover effect */
+        .report-table tbody tr:hover {
+            transition: all 0.25s ease; /* Smooth transition */
+        }
+
+        /* Result tag */
+        .result-tag {
+            padding: 6px 12px;
+            border-radius: 20px; /* Rounded tag */
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+            display: inline-block;
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: all 0.25s ease; /* Smooth transition */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Button shadow */
+        }
+
+        /* Back to top hover effect */
+        .back-to-top:hover {
+            transform: translateY(-2px); /* Slight lift on hover */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+        }
+
+        /* Color schemes for different sections */
+        /* Inspection Standards Section - Blue Theme */
+        .standards-card {
+            border-left: 4px solid #3b82f6; /* Blue left border */
+        }
+        .standards-card .section-title {
+            color: #3b82f6; /* Blue title */
+        }
+        .standards-card .section-icon {
+            color: #3b82f6; /* Blue icon */
+        }
+        .standards-card .btn {
+            background-color: #3b82f6; /* Blue button */
+        }
+        .standards-card .btn:hover {
+            background-color: #2563eb; /* Darker blue on hover */
+        }
+        .standards-card .form-group input:focus,
+        .standards-card .form-group select:focus {
+            border-color: #3b82f6; /* Blue border on focus */
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1); /* Blue focus shadow */
+        }
+
+        /* Inspection Record Section - Green Theme */
+        .record-card {
+            border-left: 4px solid #10b981; /* Green left border */
+        }
+        .record-card .section-title {
+            color: #10b981; /* Green title */
+        }
+        .record-card .section-icon {
+            color: #10b981; /* Green icon */
+        }
+        .record-card .btn {
+            background-color: #10b981; /* Green button */
+        }
+        .record-card .btn:hover {
+            background-color: #059669; /* Darker green on hover */
+        }
+        .record-card .form-group input:focus,
+        .record-card .form-group select:focus {
+            border-color: #10b981; /* Green border on focus */
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1); /* Green focus shadow */
+        }
+
+        /* Inspection Report Section - Purple Theme */
+        .report-card {
+            border-left: 4px solid #8b5cf6; /* Purple left border */
+        }
+        .report-card .section-title {
+            color: #8b5cf6; /* Purple title */
+        }
+        .report-card .section-icon {
+            color: #8b5cf6; /* Purple icon */
+        }
+        .report-card .report-table th {
+            background-color: #f5f3ff; /* Light purple header */
+            color: #8b5cf6; /* Purple header text */
+            border-bottom-color: #e9d5ff; /* Purple border */
+        }
+        .report-card .report-table tbody tr:hover {
+            background-color: #f5f3ff; /* Light purple hover */
+        }
+
+        /* Result tag colors */
+        .result-pass {
+            background-color: #10b981; /* Green for pass */
+        }
+        .result-fail {
+            background-color: #ef4444; /* Red for fail */
+        }
+
+        /* Back to top button color */
+        .back-to-top {
+            background-color: #6366f1; /* Indigo button */
+            color: white;
+        }
+        .back-to-top:hover {
+            background-color: #4f46e5; /* Darker indigo on hover */
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .form-group input,
+            .form-group select,
+            .form-group textarea {
+                max-width: 100%; /* Full width on mobile */
+            }
+
+            .radio-group {
+                flex-direction: column; /* Vertical radio buttons on mobile */
+                gap: 10px;
+            }
+
+            .report-table {
+                font-size: 12px; /* Smaller font on mobile */
+            }
+
+            .report-table th,
+            .report-table td {
+                padding: 10px 8px; /* Reduced padding on mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Back button -->
+<a href="Main.html" class="back-btn">BACK</a>
+
+<!-- Main container -->
+<div class="main-container">
+    <!-- Page title -->
+    <h1 class="main-title">Hygiene & Safety Management</h1>
+
+    <!-- Safety management container -->
+    <div class="safety-container">
+
+        <!-- Inspection Standards Card -->
+        <div class="card standards-card">
+            <h2 class="section-title">
+                <i class="fas fa-list-check section-icon"></i> Inspection Standards
+            </h2>
+            <div class="form-group">
+                <label for="standardType">Standard Type:</label>
+                <select id="standardType">
+                    <option value="hygiene">Hygiene</option>
+                    <option value="safety">Safety</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="standardContent">Standard Details:</label>
+                <input type="text" id="standardContent" placeholder="Enter scoring rules">
+            </div>
+            <button class="btn">
+                <i class="fas fa-save"></i> Save Standard
+            </button>
+        </div>
+
+        <!-- Inspection Record Card -->
+        <div class="card record-card">
+            <h2 class="section-title">
+                <i class="fas fa-pen-to-square section-icon"></i> Inspection Record
+            </h2>
+            <div class="form-group">
+                <label for="recordDate">Inspection Date:</label>
+                <input type="date" id="recordDate">
+            </div>
+            <div class="form-group">
+                <label for="dormRoom">Dorm Room:</label>
+                <input type="text" id="dormRoom" placeholder="e.g. Building 1 - 101">
+            </div>
+            <div class="form-group">
+                <label>Result:</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="result" value="pass" checked> Pass
+                    </label>
+                    <label>
+                        <input type="radio" name="result" value="fail"> Fail
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="recordNote">Notes:</label>
+                <input type="text" id="recordNote" placeholder="Enter notes">
+            </div>
+            <button class="btn">
+                <i class="fas fa-save"></i> Save Record
+            </button>
+        </div>
+
+        <!-- Inspection Report Card -->
+        <div class="card report-card">
+            <h2 class="section-title">
+                <i class="fas fa-file-alt section-icon"></i> Inspection Report
+            </h2>
+            <table class="report-table">
+                <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Dorm Room</th>
+                    <th>Type</th>
+                    <th>Result</th>
+                    <th>Notes</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>2025-9-22</td>
+                    <td>Building 1 - 101</td>
+                    <td>Hygiene</td>
+                    <td><span class="result-tag result-pass">Pass</span></td>
+                    <td>Clean and tidy</td>
+                </tr>
+                <tr>
+                    <td>2025-10-22</td>
+                    <td>Building 2 - 202</td>
+                    <td>Safety</td>
+                    <td><span class="result-tag result-fail">Fail</span></td>
+                    <td>Overused socket</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+</a>
+</body>
+</html>

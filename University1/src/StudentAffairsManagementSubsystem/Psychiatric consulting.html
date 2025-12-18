@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Psychology Consulting</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Arial", sans-serif;
+        }
+    </style>
+    <link rel="stylesheet" href="../../css/table6.css">
+</head>
+<body>
+<button type="button" class="bth-back" style="float: left" onclick="window.location.href='home.html'">Back</button>
+<h1>Psychology Consulting</h1>
+<div class="nav-tabs">
+    <a href="Psychological%20evaluation.html">Psychology evaluation</a>
+    <a href="Psychiatric consulting.html" style="margin-left: 0 ">Psychology consulting</a>
+</div>
+
+<form>
+    <fieldset>
+        <div>
+            <h2>Schedule</h2>
+            <table border="1" cellpadding="8" cellspacing="0" style="width:100%; text-align:center;">
+                <thead>
+                <tr >
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Teacher</th>
+                    <th>Location</th>
+                    <th>Remarks</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td rowspan="4">Monday-Friday</td>
+                    <td>9:00-10:30</td>
+                    <td>Miss Li</td>
+                    <td>B101</td>
+                    <td>Face-To-Face</td>
+                </tr>
+                <tr>
+                    <td>10:40-12:10</td>
+                    <td>Miss Wang</td>
+                    <td>B102</td>
+                    <td>Face-To-Face</td>
+                </tr>
+                <tr>
+                    <td>14:30-16:00</td>
+                    <td>Mrs Zhang</td>
+                    <td>B101</td>
+                    <td>Face-To-Face</td>
+                </tr>
+                <tr>
+                    <td>16:10-17:40</td>
+                    <td>Mr Zhao</td>
+                    <td>Tencent Meeting</td>
+                    <td>Online</td>
+                </tr>
+                <tr>
+                    <td rowspan="4">Weekend</td>
+                <tr>
+                    <td>10:40-12:10</td>
+                    <td>Miss Wang</td>
+                    <td>B102</td>
+                    <td>Face-To-Face</td>
+                </tr>
+                <tr>
+                    <td>16:10-17:40</td>
+                    <td>Mr Zhao</td>
+                    <td>Tencent Meeting</td>
+                    <td>Online</td>
+                </tr>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="margin-top:15px; color:#666; font-size:14px;">
+            <p>✅ Appointment Note: Please make an appointment at least 1 day in advance via the student system; for online consultation, enter the designated meeting room 10 minutes early.</p >
+            <p>⚠️ Emergency Contact: 24-hour Psychology Hotline XXX-XXXXXXX</p >
+        </div>
+    </fieldset>
+
+    <fieldset>
+        <div>
+            <label id="appoint">Psychological Counselling Appointment:
+                <select id="appointSelect1">
+                    <option value="">--Select date--</option>
+                    <option value="monday_0900">Monday </option>
+                    <option value="monday_1040">Tuesday </option>
+                    <option value="monday_1430">Wednesday </option>
+                    <option value="monday_1610">Thursday </option>
+                    <option value="tuesday_0900">Friday </option>
+                </select>
+                <select id="appointSelect2">
+                    <option value="">--Select time--</option>
+                    <option value="monday_0900">9:00-10:30 (Ms. Li, Room 101)</option>
+                    <option value="monday_1040">10:40-12:10 (Ms. Wang, Room 102)</option>
+                    <option value="monday_1430">14:30-16:00 (Mr. Zhang, Room 101)</option>
+                    <option value="monday_1610">16:10-17:40 (Mr. Zhao, Online)</option>
+                </select>
+            </label>
+            <button class="bth-back" type="submit">Submit</button>
+        </div>
+
+        <div style="margin-top:15px; color:#666; font-size:14px;">
+            <p>⚠️ Please select a time slot matching the duty schedule above</p >
+        </div>
+    </fieldset>
+</form>
+
+</body>
+</html>

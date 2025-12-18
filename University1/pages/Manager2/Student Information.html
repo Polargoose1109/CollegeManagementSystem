@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Information Management - Admin</title>
+    <link rel="stylesheet" href="../../../University1/css/main2.css">
+    <style>
+        /* 全局字体统一 */
+        body {
+            background-color: #f5f9ff; /* 更柔和的浅蓝色背景 */
+            font-family: 'Segoe UI', Arial, sans-serif; /* 现代无衬线字体 */
+            padding: 0;
+            margin: 0;
+            color: #333;
+        }
+
+        /* 主容器 */
+        .main-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* 页面标题 */
+        .main-title {
+            color: #1a365d; /* 标题主色 */
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #e0e8f0;
+            text-align: center;
+            letter-spacing: 0.5px;
+        }
+
+        /* 信息容器 */
+        .info-container {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-top: 20px;
+        }
+
+        /* 搜索栏 */
+        .search-bar {
+            margin-bottom: 25px;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .search-bar input {
+            flex: 1;
+            padding: 14px 18px;
+            border: 1px solid #e0e8f0;
+            border-radius: 8px;
+            font-size: 15px;
+            color: #333;
+            transition: all 0.2s ease;
+        }
+        .search-bar input:focus {
+            outline: none;
+            border-color: #4299e1;
+            box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+        }
+        .search-bar button {
+            padding: 14px 26px;
+            background: #1a365d;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .search-bar button:hover {
+            background: #152b4a;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(26, 54, 93, 0.2);
+        }
+
+        /* 学生表格 */
+        .student-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        /* 表格头部 */
+        .student-table th {
+            background: #f1f5f9;
+            font-weight: 600;
+            padding: 16px 20px;
+            border-bottom: 2px solid #e0e8f0;
+            color: #1a365d;
+            font-size: 15px;
+        }
+        /* 表格内容 */
+        .student-table td {
+            padding: 18px 20px;
+            border-bottom: 1px solid #f1f5f9;
+            vertical-align: middle;
+            color: #4b5563;
+        }
+        /* 表格行悬停效果 */
+        .student-table tbody tr:hover {
+            background: #f8fafc;
+            transition: background-color 0.2s ease;
+        }
+
+        /* 性别图标 */
+        .gender-icon {
+            font-size: 18px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        .gender-male {
+            color: #4299e1; /* 男性图标蓝色 */
+        }
+        .gender-female {
+            color: #ec4899; /* 女性图标粉色 */
+        }
+
+        /* 状态标签 */
+        .status-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+        }
+        .status-checked-in {
+            background: #dcfce7;
+            color: #166534;
+        }
+        .status-not-checked {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        /* 操作按钮 */
+        .action-btn {
+            width: 120px;
+            padding: 10px 0;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        /* 入住按钮 */
+        .checkin-btn {
+            background: #10b981;
+        }
+        .checkin-btn:hover {
+            background: #059669;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+        }
+        /* 退房按钮 */
+        .checkout-btn {
+            background: #ef4444;
+        }
+        .checkout-btn:hover {
+            background: #dc2626;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.2);
+        }
+        /* 换寝按钮 */
+        .switch-btn {
+            background: #3b82f6;
+        }
+        .switch-btn:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+        }
+
+        /* 空值样式 */
+        .empty-value {
+            color: #9ca3af;
+            font-style: italic;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+<!-- 返回按钮 -->
+<a href="Main.html" class="back-btn">BACK</a>
+
+<!-- 主容器 -->
+<div class="main-container">
+    <!-- 页面标题 -->
+    <h1 class="main-title">Student Information Management</h1>
+
+    <!-- 信息容器 -->
+    <div class="info-container">
+        <!-- 搜索栏 -->
+        <div class="search-bar">
+            <input type="text" placeholder="Search by Student ID / Name">
+            <button>🔍 Search</button>
+        </div>
+
+        <!-- 学生表格 -->
+        <table class="student-table">
+            <thead>
+            <tr>
+                <th>Student ID</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Department</th>
+                <th>Dorm Building</th>
+                <th>Room Number</th>
+                <th>Accommodation Status</th>
+                <th>Operation</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- 学生1 -->
+            <tr>
+                <td>20248393aaaa</td>
+                <td>Tom</td>
+                <td>
+                    <span class="gender-icon gender-male">♂</span> Male
+                </td>
+                <td>Computer Science</td>
+                <td>Building 1</td>
+                <td>101</td>
+                <td>
+                            <span class="status-tag status-checked-in">
+                                ✓ Checked In
+                            </span>
+                </td>
+                <td>
+                    <button class="action-btn checkout-btn">
+                        🏃 Check Out
+                    </button>
+                    <button class="action-btn switch-btn">
+                        🔄 Switch Dorm
+                    </button>
+                </td>
+            </tr>
+            <!-- 学生2 -->
+            <tr>
+                <td>20248393bbbb</td>
+                <td>Jerry</td>
+                <td>
+                    <span class="gender-icon gender-female">♀</span> Female
+                </td>
+                <td>Software Engineering</td>
+                <td><span class="empty-value">-</span></td>
+                <td><span class="empty-value">-</span></td>
+                <td>
+                            <span class="status-tag status-not-checked">
+                                ✗ Not Checked In
+                            </span>
+                </td>
+                <td>
+                    <button class="action-btn checkin-btn">
+                        🏠 Check In
+                    </button>
+                </td>
+            </tr>
+            <!-- 学生3 -->
+            <tr>
+                <td>20248393cccc</td>
+                <td>Amy</td>
+                <td>
+                    <span class="gender-icon gender-female">♀</span> Female
+                </td>
+                <td>Software Engineering</td>
+                <td>Building 16</td>
+                <td>505</td>
+                <td>
+                            <span class="status-tag status-checked-in">
+                                ✓ Checked In
+                            </span>
+                </td>
+                <td>
+                    <button class="action-btn checkout-btn">
+                        🏃 Check Out
+                    </button>
+                    <button class="action-btn switch-btn">
+                        🔄 Switch Dorm
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

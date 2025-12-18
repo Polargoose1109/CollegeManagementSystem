@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Menu - Library Management System</title>
+    <link rel="stylesheet" href="../../css/styles1.css">
+</head>
+<body class="gradient-bg">
+<div class="container">
+    <div class="header">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h1>Library Management System</h1>
+                <div class="user-info">
+                    Current Role: Administrator
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <a href="index1.html" class="nav-btn">Logout</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+            <a href="BookManagement1.html" class="card menu-card">
+                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <img src="../image/book.webp" alt="Book Icon" style="width: 150px; height: 100px; margin-right: 15px; object-fit: contain;">
+                    <div class="menu-title">Book Management</div>
+                </div>
+                <div class="menu-desc">Manage book information, including adding, modifying, and deleting books</div>
+            </a>
+<br>
+            <a href="ReaderManagement1.html" class="card menu-card">
+                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <img src="../image/reader.webp" alt="Reader Icon" style="width: 150px; height: 100px; margin-right: 15px; object-fit: contain;">
+                    <div class="menu-title">Reader Management</div>
+                </div>
+                <div class="menu-desc">Manage reader information, including registration and modification</div>
+            </a>
+<br>
+            <a href="BorrowManagement1.html" class="card menu-card">
+                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <img src="../image/borrow.webp" alt="Borrow Icon" style="width: 150px; height: 100px; margin-right: 15px; object-fit: contain;">
+                    <div class="menu-title">Borrow Management</div>
+                </div>
+                <div class="menu-desc">Handle book borrowing, returning, and renewal operations</div>
+            </a>
+<br>
+            <a href="Statistics1.html" class="card menu-card">
+                <div style="display: flex; align-items: center; margin-bottom: 15px;">
+                    <img src="../image/statistics.webp" alt="Statistics Icon" style="width: 150px; height: 100px; margin-right: 15px; object-fit: contain;">
+                    <div class="menu-title">Statistical Analysis</div>
+                </div>
+                <div class="menu-desc">View borrowing statistics, inventory analysis and data reports</div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<style>
+    .menu-card img {
+        border-radius: 8px;
+        background: #f8f9fa;
+        padding: 5px;
+    }
+
+    @media (max-width: 768px) {
+        .menu-card img {
+            width: 40px;
+            height: 40px;
+            margin-right: 12px;
+        }
+
+        .grid-2 {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+</body>
+</html>
