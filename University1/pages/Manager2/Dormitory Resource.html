@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dormitory Resource Management</title>
+    <!-- 引入外部样式文件 -->
+    <link rel="stylesheet" href="../../../University1/css/main2.css">
+    <style>
+        /* 页面特定样式 - 基于main.css扩展 */
+        /* 页面容器 */
+        .page-container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* 卡片容器 */
+        .card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+            padding: 25px;
+            margin-top: 20px;
+        }
+
+        /* 管理员信息 */
+        .admin-info {
+            text-align: right;
+            font-size: 14px;
+            color: #4a5568;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        /* 控制面板 */
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        /* 按钮样式扩展 */
+        button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background-color: #57b4f3;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 8px rgba(87, 180, 243, 0.25);
+            font-family: Arial, sans-serif;
+        }
+
+        button:hover {
+            background-color: #4aa8f0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(87, 180, 243, 0.35);
+        }
+
+        button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 6px rgba(87, 180, 243, 0.2);
+        }
+
+        /* 次要按钮 */
+        button.secondary {
+            background-color: #e2e8f0;
+            color: #4a5568;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        button.secondary:hover {
+            background-color: #cbd5e0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+        }
+
+        /* 输入框和选择框 */
+        input, select {
+            padding: 10px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.25s ease;
+            width: 200px;
+            font-family: Arial, sans-serif;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #57b4f3;
+            box-shadow: 0 0 0 3px rgba(87, 180, 243, 0.1);
+        }
+
+        /* 表格样式 */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        thead {
+            background-color: #f8f9fa;
+        }
+
+        th, td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        th {
+            font-weight: 600;
+            color: #2755a3;
+            font-size: 14px;
+        }
+
+        tbody tr {
+            transition: all 0.25s ease;
+        }
+
+
+        /* 状态标签 */
+        .status {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .allocated {
+            background-color: #22c55e;
+        }
+        .available {
+            background-color: #64748b;
+        }
+        .maintenance {
+            background-color: #f59e0b;
+        }
+
+        /* 操作按钮组 */
+        .actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .actions button {
+            padding: 6px 12px;
+            font-size: 12px;
+            border-radius: 6px;
+        }
+
+        .actions button:nth-child(1) {
+            background-color: #57b4f3;
+        }
+
+        .actions button:nth-child(2) {
+            background-color: #22c55e;
+        }
+
+        .actions button:nth-child(3) {
+            background-color: #ef4444;
+        }
+
+        /* 分页样式 */
+        .pagination {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .pagination button {
+            padding: 8px 12px;
+            min-width: 36px;
+            background-color: white;
+            border: 1px solid #e2e8f0;
+            color: #4a5568;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+        }
+
+        .pagination button:hover:not(:disabled) {
+            background-color: #57b4f3;
+            color: white;
+            border-color: #57b4f3;
+        }
+
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .pagination button.active {
+            background-color: #57b4f3;
+            color: white;
+            border-color: #57b4f3;
+        }
+
+        .back-to-top:hover {
+            background-color: #4aa8f0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(87, 180, 243, 0.35);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            input, select {
+                width: 100%;
+            }
+
+            table {
+                font-size: 12px;
+            }
+
+            th, td {
+                padding: 10px 8px;
+            }
+
+            .actions {
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .actions button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- 返回按钮 -->
+<a href="Main.html" class="back-btn">BACK</a>
+
+<!-- 页面主容器 -->
+<div class="page-container">
+    <!-- 页面标题 -->
+    <h1 class="main-title">Dormitory Resource Management</h1>
+
+    <!-- 卡片容器 -->
+    <div class="card">
+        <!-- 管理员信息 -->
+        <div class="admin-info">Admin: Teacher Li</div>
+
+        <!-- 控制面板 -->
+        <div class="controls">
+            <div>
+                <button id="addBtn">Add Dorm</button>
+                <button class="secondary" id="importBtn">Bulk Import</button>
+            </div>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <input type="text" placeholder="Search Building/Room">
+                <select>
+                    <option>All Buildings</option>
+                    <option>Building 1</option>
+                    <option>Building 2</option>
+                </select>
+                <button>Search</button>
+            </div>
+        </div>
+
+        <!-- 资源表格 -->
+        <table>
+            <thead>
+            <tr>
+                <th>Building</th>
+                <th>Floor</th>
+                <th>Room No.</th>
+                <th>Type</th>
+                <th>Total Beds</th>
+                <th>Used Beds</th>
+                <th>Gender</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Building 1</td>
+                <td>3</td>
+                <td>301</td>
+                <td>4-person</td>
+                <td>4</td>
+                <td>4</td>
+                <td>Male</td>
+                <td><span class="status allocated">Allocated</span></td>
+                <td class="actions">
+                    <button>View</button>
+                    <button>Edit</button>
+                    <button>Del</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Building 1</td>
+                <td>3</td>
+                <td>302</td>
+                <td>4-person</td>
+                <td>4</td>
+                <td>0</td>
+                <td>Male</td>
+                <td><span class="status available">Available</span></td>
+                <td class="actions">
+                    <button>View</button>
+                    <button>Edit</button>
+                    <button>Del</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Building 2</td>
+                <td>2</td>
+                <td>205</td>
+                <td>6-person</td>
+                <td>6</td>
+                <td>0</td>
+                <td>Female</td>
+                <td><span class="status maintenance">Maintenance</span></td>
+                <td class="actions">
+                    <button>View</button>
+                    <button>Edit</button>
+                    <button>Del</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <!-- 分页 -->
+        <div class="pagination">
+            <button disabled>&lt;</button>
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>&gt;</button>
+        </div>
+    </div>
+</div>
+<a href="#" class="back-to-top">BACK TO THE TOP</a>
+</body>
+</html>

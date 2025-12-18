@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Facility Repair Management</title>
+    <link rel="stylesheet" href="../../../University1/css/main2.css">
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .page-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        .page-title {
+            color: #2755a3;
+            font-size: 24px;
+            font-weight: 600;
+            margin: 0;
+        }
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+            padding: 25px;
+        }
+        .search-section {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .search-input {
+            flex: 1;
+            min-width: 240px;
+            padding: 10px 14px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        .status-select {
+            padding: 10px 14px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            min-width: 120px;
+        }
+        .search-btn {
+            padding: 10px 20px;
+            background: #57b4f3;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .repair-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        .repair-table th {
+            background: #f8f9fa;
+            color: #2755a3;
+            font-weight: 600;
+            padding: 14px 12px;
+            text-align: left;
+            border-bottom: 2px solid #e9ecef;
+        }
+        .repair-table td {
+            padding: 14px 12px;
+            border-bottom: 1px solid #f0f2f5;
+            vertical-align: middle;
+        }
+        /* 性别图标样式 */
+        .gender-icon {
+            margin-right: 8px;
+            font-size: 16px;
+        }
+        .gender-female {
+            color: #e91e63; /* 粉色 */
+        }
+        .gender-male {
+            color: #2196f3; /* 蓝色 */
+        }
+        .status-tag {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #fff;
+            display: inline-block;
+        }
+        .pending {
+            background: #ff9800;
+        }
+        .assigned {
+            background: #57b4f3;
+        }
+        .completed {
+            background: #4caf50;
+        }
+        .action-group {
+            display: flex;
+            gap: 8px;
+        }
+        .action-btn {
+            padding: 8px 14px;
+            border: none;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .assign-btn {
+            background: #57b4f3;
+            color: #fff;
+        }
+        .update-btn {
+            background: #4caf50;
+            color: #fff;
+        }
+        .detail-btn {
+            background: #f0f2f5;
+            color: #333;
+        }
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+        }
+        .modal-content {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            width: 400px;
+            max-width: 90%;
+        }
+        .modal-title {
+            color: #2755a3;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+        .form-group select,
+        .form-group textarea,
+        .form-group input {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            outline: none;
+        }
+        .modal-footer {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<a href="Main.html" class="back-btn">BACK</a>
+<div class="container">
+    <div class="page-header">
+        <h1 class="page-title">Facility Repair Management</h1>
+    </div>
+    <div class="card">
+        <div class="search-section">
+            <input type="text" placeholder="Search by Dorm/Student ID" class="search-input">
+            <select class="status-select">
+                <option>All Status</option>
+                <option>Pending</option>
+                <option>Assigned</option>
+                <option>Completed</option>
+            </select>
+            <button class="search-btn">Search</button>
+        </div>
+        <table class="repair-table">
+            <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Student Info</th>
+                <th>Dorm</th>
+                <th>Fault Type</th>
+                <th>Submit Time</th>
+                <th>Status</th>
+                <th>Repair Staff</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>2025001</td>
+                <td><span class="gender-icon gender-male">♂</span>John (20230001)</td>
+                <td>Building 1, Room 301</td>
+                <td>Water/Elec</td>
+                <td>2025-12-01 08:30</td>
+                <td><span class="status-tag pending">PENDING</span></td>
+                <td>-</td>
+                <td>
+                    <div class="action-group">
+                        <button class="action-btn assign-btn" onclick="openAssignModal()">Assign</button>
+                        <button class="action-btn detail-btn">Details</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>2025002</td>
+                <td><span class="gender-icon gender-female">♀</span>Lisa (20230002)</td>
+                <td>Building 2, Room 205</td>
+                <td>Furniture</td>
+                <td>2025-12-01 10:15</td>
+                <td><span class="status-tag assigned">ASSIGNED</span></td>
+                <td>Mike</td>
+                <td>
+                    <div class="action-group">
+                        <button class="action-btn update-btn">Update Progress</button>
+                        <button class="action-btn detail-btn">Details</button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>2025003</td>
+                <td><span class="gender-icon gender-male">♂</span>Tom (20230003)</td>
+                <td>Building 1, Room 302</td>
+                <td>Others</td>
+                <td>2025-12-01 14:20</td>
+                <td><span class="status-tag completed">COMPLETED</span></td>
+                <td>Anna</td>
+                <td>
+                    <div class="action-group">
+                        <button class="action-btn detail-btn">Details</button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal" id="assignModal">
+    <div class="modal-content">
+        <h2 class="modal-title">Assign Repair Staff</h2>
+        <div class="form-group">
+            <label>Order ID</label>
+            <input type="text" value="REP2025001" disabled>
+        </div>
+        <div class="form-group">
+            <label>Select Staff</label>
+            <select>
+                <option>Mike (Plumber/Electrician)</option>
+                <option>Anna (Furniture Repair)</option>
+                <option>Bob (General Repair)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Notes</label>
+            <textarea rows="2" placeholder="Add notes for the staff..."></textarea>
+        </div>
+        <div class="modal-footer">
+            <button class="action-btn detail-btn" onclick="closeModal()">Cancel</button>
+            <button class="action-btn assign-btn" onclick="closeModal()">Confirm Assign</button>
+        </div>
+    </div>
+</div>
+
+<a href="#" class="back-to-top">BACK TO THE TOP</a>
+</body>
+</html>

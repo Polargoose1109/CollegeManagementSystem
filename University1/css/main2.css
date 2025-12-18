@@ -1,0 +1,106 @@
+/* background */
+body {
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+/* main container */
+.main-container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+/* home page title */
+.main-title {
+    color: #2755a3;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e9ecef;
+}
+/* button grid */
+.func-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px; /* 按钮间距 */
+}
+/* button card */
+.func-card {
+    display: block;
+    background-color: #ffffff;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.06);
+    text-align: center;
+    text-decoration: none;
+    color: #4a5568;
+    transition: all 0.2s ease;
+}
+/* hover */
+.func-card:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+/* button title */
+.func-card h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* 返回按钮样式 - 协调版 */
+.back-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 10px 22px;
+    background-color: #57b4f3; /* 与示例中按钮主色一致 */
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px; /* 比原示例更柔和，与页面卡片圆角统一 */
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 15px 20px 20px;
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 8px rgba(87, 180, 243, 0.25); /* 更浅的阴影，与页面卡片阴影风格统一 */
+}
+
+/* 按钮图标（与示例中的箭头样式匹配） */
+.back-btn::before {
+    content: "←";
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* 悬停效果（柔和过渡，与页面其他元素动效统一） */
+.back-btn:hover {
+    background-color: #4aa8f0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(87, 180, 243, 0.35);
+}
+
+/* 点击效果 */
+.back-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(87, 180, 243, 0.2);
+}
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #57b4f3;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 0; /* 完全矩形，无圆角 */
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: none; /* 无阴影 */
+    border: none; /* 无边框 */
+    z-index: 1000;
+}

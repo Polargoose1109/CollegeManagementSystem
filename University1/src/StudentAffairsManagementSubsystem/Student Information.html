@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Information Management System</title>
+    <link rel="stylesheet" href="../../css/Student%20Information6.css">
+</head>
+<body>
+    <form class="input-form">
+        <h2>Student Information</h2>
+        <fieldset>
+            <div>
+                <label>Student Name:
+                    <input
+                            type="text"
+                            name="Student name"
+                            id="Student name"
+                            placeholder="Please Input Student's Name"
+                            required
+                    >
+                </label>
+            </div>
+
+            <div>
+                <label>Country:
+                    <select name="country">
+                        <option value="china">China</option>
+                        <option value="america">America</option>
+
+                    </select>
+
+                </label>
+            </div>
+
+            <div>
+                <label>Gender:
+                    <input type="radio" name="gender" value="male">Male
+                    <input type="radio" name="gender" value="female" checked>Female
+                </label>
+            </div>
+
+            <div>
+                <label>Age:
+                    <input type="number" min="1" max="120" name="age" placeholder="Please input your age">
+                </label>
+            </div>
+
+            <div>
+                <label>Family background:
+                    <textarea name="Family background" cols="30" rows="8"></textarea>
+                </label>
+            </div>
+
+            <div>
+                <label>Rewards and punishments:
+                    <textarea name="Rewards and punishments" cols="30" rows="8"></textarea>
+                </label>
+            </div>
+
+            <div style="border-bottom: 1px solid #ffffff">
+                <input type="button" class="login-btn" value="Grade"  onclick="window.location.href='../Grade/StudentAffairsManagementSubsystem.Grade.html'">
+            </div>
+
+            <div class="input-item">
+                <label>Skills (choose all that apply):</label><br>
+                <label style="display: inline-block; margin-right: 15px;">
+                    <input type="checkbox" id="coding" name="skills" value="coding"> Coding
+                </label>
+                <label style="display: inline-block; margin-right: 15px;">
+                    <input type="checkbox" id="design" name="skills" value="design"> Design
+                </label>
+                <label style="display: inline-block; margin-right: 15px;">
+                    <input type="checkbox" id="writing" name="skills" value="writing"> Writing
+                </label>
+                <label style="display: inline-block;">
+                    <input type="checkbox" id="public_speaking" name="skills" value="public_speaking"> Public Speaking
+                </label>
+            </div>
+
+            <button type="submit" class="login-btn" style="margin-top: 10px ">Submit</button>
+            <input type="button" class="login-btn" style="margin-top: 10px; float: right" value="Back" onclick="window.location.href='home.html'">
+        </fieldset>
+    </form>
+
+</body>
+</html>

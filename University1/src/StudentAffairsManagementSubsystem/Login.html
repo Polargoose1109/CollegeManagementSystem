@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../css/login6.css">
+    <title>Login Page</title>
+    <style>
+        .mainpage-btn-container {
+            text-align: center;
+            margin-top: 20px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div class="login-box">
+    <div class="login-form">
+        <h2>LOGIN PAGE</h2>
+        <form action="Student Information.html" method="get" enctype="application/x-www-form-urlencoded">
+            <fieldset>
+                <legend>Personal Information</legend>
+                <div class="input-item">
+                    <label for="username">User Name:</label>
+                    <input
+                            type="text"
+                            id="username"
+                            name="student name"
+                            placeholder="Please input your name or student code"
+                            required
+                    >
+                </div>
+
+                <div class="input-item">
+                    <label for="password">Password:</label>
+                    <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            required
+                            placeholder="Please input your password"
+                    >
+                </div>
+
+                <div class="identity">
+                    <label>
+                        <input type="radio" name="identity" value="student" checked> Student
+                    </label>
+                    <label>
+                        <input type="radio" name="identity" value="teacher"> Teacher
+                    </label>
+                </div>
+
+                <input type="button" class="login-btn" value="Log In" onclick="window.location.href='home.html'">
+                <input type="button" class="login-btn" style="margin-top: 10px;" value="Register" onclick="window.location.href='Register.html'">
+            </fieldset>
+        </form>
+        <div class="mainpage-btn-container">
+            <button onclick="window.location.href='../MainPage/mainPage.html'">Return to MainPage</button>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

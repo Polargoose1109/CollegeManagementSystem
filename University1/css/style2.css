@@ -1,0 +1,271 @@
+/* 全局样式重置 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 基础样式 - 淡蓝色主题 */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e3f2fd; /* 淡蓝色背景 */
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 30px 20px; /* 增大页面边距 */
+}
+
+/* 主容器 - 适配放大后的模块 */
+.main-container {
+    max-width: 1300px; /* 适当加宽容器 */
+    margin: 0 auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 40px 30px; /* 增大容器内边距 */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* 标题样式 - 放大并优化 */
+.main-title {
+    color: #1976d2; /* 主蓝色 */
+    font-size: 2.2rem; /* 放大标题 */
+    font-weight: 600;
+    margin-bottom: 35px; /* 增大标题与模块间距 */
+    padding-bottom: 15px; /* 增大标题下划线间距 */
+    border-bottom: 2px solid #bbdefb; /* 加粗下划线 */
+    text-align: center;
+}
+
+/* 标题中的粗体样式 */
+.main-title b {
+    font-weight: 700;
+}
+
+/* 功能网格布局 - 放大模块 & 优化间距 */
+.func-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 增大最小列宽 */
+    gap: 30px; /* 增大模块间距 */
+    padding: 10px 0;
+}
+
+/* 功能卡片基础样式 - 放大尺寸 */
+.func-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f8f9fa;
+    padding: 45px 30px; /* 增大卡片内边距 */
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    border: 2px solid transparent; /* 透明边框，悬停时显示 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 添加过渡动画 */
+    min-height: 220px; /* 设置最小高度，确保卡片高度一致 */
+    justify-content: center; /* 内容垂直居中 */
+}
+
+/* 卡片悬停效果 - 添加上浮和阴影 */
+.func-card:hover {
+    transform: translateY(-8px); /* 上浮效果 */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12); /* 增强阴影 */
+}
+
+/* 图标容器基础样式 - 放大图标 */
+.card-icon {
+    width: 80px; /* 增大图标容器尺寸 */
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px; /* 增大图标与标题间距 */
+    font-size: 2.5rem; /* 放大图标 */
+    color: white;
+    transition: transform 0.3s ease; /* 图标过渡动画 */
+}
+
+/* 图标悬停效果 */
+.func-card:hover .card-icon {
+    transform: scale(1.05); /* 图标轻微放大 */
+}
+
+/* 卡片标题 - 放大文字 */
+.func-card h2 {
+    font-size: 1.3rem; /* 放大标题文字 */
+    font-weight: 600;
+    text-align: center;
+    color: #333;
+    line-height: 1.6;
+    transition: color 0.3s ease; /* 标题颜色过渡 */
+}
+
+/* 1. 蓝色主题（宿舍资源管理/宿舍资源） */
+.card-blue {
+    border-color: #bbdefb;
+}
+.card-blue:hover {
+    background-color: #e3f2fd;
+    border-color: #1976d2;
+}
+.card-blue .card-icon {
+    background-color: #1976d2;
+}
+.card-blue:hover h2 {
+    color: #1976d2;
+}
+
+/* 2. 绿色主题（学生信息管理/宿舍卫生状况） */
+.card-green {
+    border-color: #c8e6c9;
+}
+.card-green:hover {
+    background-color: #e8f5e8;
+    border-color: #4caf50;
+}
+.card-green .card-icon {
+    background-color: #4caf50;
+}
+.card-green:hover h2 {
+    color: #4caf50;
+}
+
+/* 3. 橙色主题（宿舍检查管理） */
+.card-orange {
+    border-color: #ffe0b2;
+}
+.card-orange:hover {
+    background-color: #fff3e0;
+    border-color: #ff9800;
+}
+.card-orange .card-icon {
+    background-color: #ff9800;
+}
+.card-orange:hover h2 {
+    color: #ff9800;
+}
+
+/* 4. 红色主题（卫生安全管理/宿舍安全） */
+.card-red {
+    border-color: #ffcdd2;
+}
+.card-red:hover {
+    background-color: #ffebee;
+    border-color: #f44336;
+}
+.card-red .card-icon {
+    background-color: #f44336;
+}
+.card-red:hover h2 {
+    color: #f44336;
+}
+
+/* 5. 紫色主题（设施维修管理/设施维修提交） */
+.card-purple {
+    border-color: #e1bee7;
+}
+.card-purple:hover {
+    background-color: #f3e5f5;
+    border-color: #9c27b0;
+}
+.card-purple .card-icon {
+    background-color: #9c27b0;
+}
+.card-purple:hover h2 {
+    color: #9c27b0;
+}
+
+/* 6. 青色主题（数据统计分析） */
+.card-cyan {
+    border-color: #b2ebf2;
+}
+.card-cyan:hover {
+    background-color: #e0f7fa;
+    border-color: #00bcd4;
+}
+.card-cyan .card-icon {
+    background-color: #00bcd4;
+}
+.card-cyan:hover h2 {
+    color: #00bcd4;
+}
+
+/* 7. 黄色主题（信息发布/通知） */
+.card-yellow {
+    border-color: #fff9c4;
+}
+.card-yellow:hover {
+    background-color: #fffde7;
+    border-color: #ffeb3b;
+}
+.card-yellow .card-icon {
+    background-color: #ffeb3b;
+    color: #333; /* 黄色背景用深色文字 */
+}
+.card-yellow:hover h2 {
+    color: #fbc02d;
+}
+
+/* 响应式设计 - 适配不同屏幕尺寸 */
+@media (max-width: 1200px) {
+    .func-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* 适当调整列宽 */
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 20px 10px;
+    }
+
+    .main-container {
+        padding: 30px 20px;
+    }
+
+    .main-title {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+
+    .func-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .func-card {
+        padding: 35px 25px;
+        min-height: auto;
+    }
+
+    .card-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2.2rem;
+        margin-bottom: 20px;
+    }
+
+    .func-card h2 {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.5rem;
+    }
+
+    .func-card {
+        padding: 25px 20px;
+    }
+
+    .card-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+
+    .func-card h2 {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Grade Management System</title>
+    <link rel="stylesheet" href="../../css/Grade6.css">
+</head>
+<body>
+    <div class="grade-container">
+        <h2 class="section-title">Grade Management System</h2>
+
+        <form id="gradeForm">
+            <fieldset>
+                <div class="course-item">
+                    <div class="course-label">Website Engineering:</div>
+                    <input type="number" class="course-input" id="WebsiteEngineering" name="WebsiteEngineering" placeholder="Enter grade (0-100)" min="0" max="100" required>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-label">Data Structure:</div>
+                    <input type="number" class="course-input" id="DataStructure" name="DataStructure" placeholder="Enter grade (0-100)" min="0" max="100" required>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-label">Java Programming:</div>
+                    <input type="number" class="course-input" id="JavaProgramming" name="JavaProgramming" placeholder="Enter grade (0-100)" min="0" max="100" required>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-label">Database System:</div>
+                    <input type="number" class="course-input" id="DatabaseSystem" name="DatabaseSystem" placeholder="Enter grade (0-100)" min="0" max="100" required>
+                </div>
+
+                <div class="course-item">
+                    <div class="course-label">Computer Network:</div>
+                    <input type="number" class="course-input" id="ComputerNetwork" name="ComputerNetwork" placeholder="Enter grade (0-100)" min="0" max="100" required>
+                </div>
+
+                <div class="result-area">
+                    <p><strong>Average Grade:</strong> <span id="averageGrade">--</span></p >
+                    <p><strong>Overall Performance:</strong> <span id="performanceLevel">--</span></p >
+                </div>
+                <button type="button" class="bth-back" onclick="window.location.href='home.html'">Back</button>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-submit" onclick="calculateGrade()">Calculate & Submit</button>
+                    <button type="reset" class="btn btn-reset">Reset</button>
+                </div>
+
+                <p class="tips">Note: Please enter grades between 0-100. The system will automatically calculate the average and performance level.</p >
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
