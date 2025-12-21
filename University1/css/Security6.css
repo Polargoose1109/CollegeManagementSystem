@@ -73,4 +73,11 @@ label {
 }
 .btn-cancel:hover {
     background-color: #e8eaed;
+
+}
+.password-hint{
+    font-size: 10px;
+    background-color: yellow;
+    width: 320px;
+    margin-top: 5px;
 }
