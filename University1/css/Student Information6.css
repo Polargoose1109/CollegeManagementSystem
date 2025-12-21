@@ -1,6 +1,5 @@
 div{
-    margin: 2px auto;
-    border-bottom: 1px solid #916363;
+    margin: 15px auto;
 }
 
 label {
@@ -39,7 +38,7 @@ h2{
     border-radius: 4px;
 }
 fieldset{
-    background-color: #dee9f4;
+    background-color: #ffffff;
 }
 textarea {
     width: 100%;
