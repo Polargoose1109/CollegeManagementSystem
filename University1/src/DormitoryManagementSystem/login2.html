@@ -1,69 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dormitory Management System - Login</title>
-    <!--css-->
-    <link rel="stylesheet" href="../../css/login2.css">
-    <link rel="stylesheet" href="../../css/main2.css">
+    <link rel="stylesheet" href="../../css/style2.css">
     <style>
-        .mainpage-btn-container {
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .login-box {
+            width: 400px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        .login-box h2 {
             text-align: center;
-            margin-top: 20px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+        .input-item {
+            margin-bottom: 20px;
+        }
+        .input-item label {
+            display: block;
+            margin-bottom: 5px;
+            color: #666;
+            font-weight: 500;
+        }
+        .input-item input {
             width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .login-btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .login-btn {
+            flex: 1;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .login-btn:hover {
+            background-color: #218838;
+        }
+
+        @media (max-width: 450px) {
+            .login-box {
+                width: 90%;
+            }
         }
     </style>
 </head>
-
 <body>
+
+
 <div class="login-box">
     <h2>Dormitory Management System</h2>
 
-    <div class="input-item">
-        <label>Username:</label>
-        <input type="text" id="user" placeholder="Enter your username">
-    </div>
+    <form id="loginForm">
+        <div class="input-item">
+            <label>Username:</label>
 
-    <div class="input-item">
-        <label>Password:</label>
-        <input type="password" id="pwd" placeholder="Enter your password">
+            <input type="text" placeholder="Enter your username" required>
+        </div>
+        <div class="input-item">
+            <label>Password:</label>
+            <input type="password" placeholder="Enter your password" required>
+        </div>
+
+        <div class="login-btn-group">
+            <button type="button" class="login-btn" onclick="if(document.getElementById('loginForm').checkValidity()) window.location.href='../../pages/Manager2/Main.html'">Manager Login</button>
+            <button type="button" class="login-btn" onclick="if(document.getElementById('loginForm').checkValidity()) window.location.href='../../pages/Student2/Main.html'">Student Login</button>
+        </div>
+    </form>
+    <br>
+    <div class="mainpage-btn-container">
+        <button onclick="window.location.href='../../index.html'">Return to MainPage</button>
     </div>
-    <div class="identity">
-        <label>
-            <input type="radio" name="role" value="manager" checked> Manager
-        </label>
-        <label>
-            <input type="radio" name="role" value="student"> Student
-        </label>
-    </div>
-    <button class="login-btn" onclick="toLogin()">Login</button>
 </div>
 
-<div class="mainpage-btn-container">
-    <button onclick="window.location.href='../../../index.html'">Return to MainPage</button>
-</div>
-
-<script>
-
-    function toLogin() {
-        var user = document.getElementById("user").value;
-        var pwd = document.getElementById("pwd").value;
-        var role = document.querySelector('input[name="role"]:checked').value;
-
-        if (user === "" || pwd === "") {
-            alert("Username and password cannot be empty!");
-            return;
-        }
-
-        if (role === "manager") {
-            window.location.href = "../../pages/Manager2/Main.html";
-        } else {
-            window.location.href = "../../pages/Student2/Main.html";
-        }
-    }
-</script>
 </body>
-
 </html>
